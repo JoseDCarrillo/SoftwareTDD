@@ -1,0 +1,56 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #04383F; // color corporativo
+  padding: 2rem 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+
+  .sidebar-title {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+    color: white;
+  }
+
+  .sidebar-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    button {
+      background-color: #06585f;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #08787d;
+      }
+
+      &.active {
+        background-color: #0a9ba1;
+        font-weight: bold;
+      }
+
+      &.logout {
+        background-color: transparent;
+        color: #ffb3b3;
+
+        &:hover {
+          background-color: rgba(255, 0, 0, 0.2);
+          color: #fff;
+        }
+      }
+    }
+  }
+}

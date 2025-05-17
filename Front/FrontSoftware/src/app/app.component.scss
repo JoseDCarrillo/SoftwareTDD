@@ -1,0 +1,21 @@
+.main-layout {
+  display: flex;
+  height: 100vh;
+}
+
+app-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: #233647;
+  color: white;
+  height: 100vh;
+  position: relative; // IMPORTANTE: evitar absolute si no hay necesidad
+  z-index: 1;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}

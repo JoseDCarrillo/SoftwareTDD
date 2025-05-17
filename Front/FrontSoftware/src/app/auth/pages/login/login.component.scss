@@ -1,0 +1,129 @@
+.login-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/image-login/fondo.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 32px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  height: auto;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+h2 {
+  font-size: 16px;
+  color: #404040;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.8rem;
+  text-align: left;
+}
+
+.form-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  padding: 8px 0;
+  background: transparent;
+}
+
+.input-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-group label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 12px;
+  color: #888;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -16px;
+  font-size: 12px;
+  color: #04383F;
+}
+
+.form-group input:focus ~ .input-underline {
+  background: #04383F;
+  height: 2px;
+}
+
+.password-group {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.eye-icon:hover {
+  transform: scale(1.1);
+}
+
+.actions button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  background: #04383F;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.actions button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

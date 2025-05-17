@@ -1,0 +1,48 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="logo-container">
+      <img src="image-login/LogoLogin.png" alt="Logo" class="logo" />
+    </div>
+    <h2>Bienvenido a Loyal AGPE</h2>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="form-group">
+        <input id="email" type="email" formControlName="email" placeholder=" " />
+        <label for="email">Correo electrónico</label>
+        <span class="input-underline"></span>
+        <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          El correo es inválido.
+        </div>
+      </div>
+
+      <div class="form-group password-group">
+        <input [type]="passwordFieldType" id="password" formControlName="password" placeholder=" " />
+        <label for="password">Contraseña</label>
+        <span class="input-underline"></span>
+        <span class="eye-icon" (click)="togglePasswordVisibility()">
+          <img [src]="passwordFieldType === 'password'
+              ? '/image-login/Ocultar Detalles j.svg'
+              : '/image-login/Ver Detalles - copia  j.svg'" alt="Mostrar/Ocultar contraseña" />
+        </span>
+
+        <!-- Mensajes de error específicos -->
+        <div class="error" *ngIf="password?.errors && password?.touched">
+          <div *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</div>
+          <div *ngIf="password?.errors?.['minLength']">Debe tener al menos 8 caracteres.</div>
+          <div *ngIf="password?.errors?.['uppercase']">Debe incluir al menos una letra mayúscula.</div>
+          <div *ngIf="password?.errors?.['lowercase']">Debe incluir al menos una letra minúscula.</div>
+          <div *ngIf="password?.errors?.['number']">Debe incluir al menos un número.</div>
+          <div *ngIf="password?.errors?.['specialChar']">Debe incluir al menos un carácter especial.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+      </div>
+
+      <br />
+    </form>
+
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+  </div>
+</div>

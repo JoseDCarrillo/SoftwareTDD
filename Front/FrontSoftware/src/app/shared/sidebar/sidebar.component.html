@@ -1,0 +1,32 @@
+<nav class="sidebar">
+  <h2 class="sidebar-title">Menú</h2>
+  <div class="sidebar-buttons">
+    <button 
+      type="button" 
+      *ngIf="user?.role === 'Admin'" 
+      (click)="navigateTo('/admin')">
+      Administración
+    </button>
+
+    <button 
+      type="button" 
+      *ngIf="user?.role === 'Editor' || user?.role === 'Admin'" 
+      (click)="navigateTo('/editor')">
+      Edición
+    </button>
+
+    <button 
+      type="button" 
+      *ngIf="user?.role === 'Reader' || user?.role === 'Editor' || user?.role === 'Admin'" 
+      (click)="navigateTo('/reader')">
+      Lectura
+    </button>
+
+    <button 
+      type="button" 
+      class="logout" 
+      (click)="logout()">
+      Cerrar sesión
+    </button>
+  </div>
+</nav>
