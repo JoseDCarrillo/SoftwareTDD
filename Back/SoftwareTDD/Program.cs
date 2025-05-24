@@ -20,7 +20,22 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularDev", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials(); // solo si usas cookies o auth headers
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowAngularDev");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
